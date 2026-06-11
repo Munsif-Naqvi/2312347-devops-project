@@ -13,6 +13,5 @@ class StudentResponse(BaseModel):
     name: str
     course: str
 
-
     class Config:
         from_attributes = True
