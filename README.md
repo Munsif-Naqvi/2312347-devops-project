@@ -12,3 +12,8 @@ Docker Compose
 GitHub Actions  —  CI pipeline (lint + test), CD pipeline (auto-deploy to EC2 on push)
 AWS EC2
 PostgreSQL
+Application architecture and requirements:
+A FastAPI web application with a PostgreSQL database backend. 
+The app exposes four REST API endpoints and persists data in a PostgreSQL container. 
+Both services run via Docker Compose. 
+The entire system deploys automatically to AWS EC2 whenever you push code to the main branch.
