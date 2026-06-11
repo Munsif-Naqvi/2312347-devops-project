@@ -16,6 +16,7 @@ def startup():
     Base.metadata.create_all(bind=engine)
 
 
+
 # Dependency (DB session)
 def get_db():
     db = SessionLocal()
@@ -34,9 +35,11 @@ def health():
     }
 
 
+
 # -------------------------
 # CREATE STUDENT
 # -------------------------
+
 
 
 @app.post("/students")
@@ -47,9 +50,11 @@ def create_student(student: schemas.StudentCreate, db: Session = Depends(get_db)
         course=student.course
     )
 
+
     db.add(new_student)
     db.commit()
     db.refresh(new_student)
+
 
     return new_student
 
@@ -73,7 +78,9 @@ def get_students(db: Session = Depends(get_db)):
 def get_student(reg_no: str, db: Session = Depends(get_db)):
     student = db.query(models.Student).filter(models.Student.reg_no == reg_no).first()
 
+
     if not student:
         raise HTTPException(status_code=404, detail="Student not found")
+
 
     return student
