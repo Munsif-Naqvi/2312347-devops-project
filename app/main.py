@@ -20,6 +20,7 @@ def health():
     return {
         "status": "ok",
         "db": "connected",
+        "test": "test for submission",
         "student": REG_NO
     }
 
